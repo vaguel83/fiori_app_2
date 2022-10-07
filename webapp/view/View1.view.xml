@@ -1,7 +1,129 @@
-<mvc:View controllerName="fioriapp2.controller.View1"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+<mvc:View controllerName="fioriapp2.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:semantic="sap.f.semantic">
+    <semantic:SemanticPage id="mySemanticPage" headerPinnable="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true" headerExpanded="true">
+        <semantic:titleHeading>
+            <Title text="{i18n>title}" />
+        </semantic:titleHeading>
+
+        <semantic:titleSnappedContent>
+            <Text text="{i18n>smallDescription}" />
+        </semantic:titleSnappedContent>
+
+        <semantic:titleExpandedContent>
+            <Text text="{i18n>appDescription}" />
+        </semantic:titleExpandedContent>
+
+        <semantic:headerContent>
+            <layout:HorizontalLayout allowWrapping="true">
+                <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                    <!-- <ObjectAttribute title="Functional Area" text="{i18n>functional_area}" /> -->
+                    <Button id="GetData" class="sapUiTinyMarginBeginEnd" icon="sap-icon://call" type="Default" text="Get Data"
+                    press = "onPress">
+                        <customData>
+                            <BadgeCustomData key="badge" value="" visible="true" />
+                        </customData>
+                    </Button>
+                </layout:VerticalLayout>
+            </layout:HorizontalLayout>
+        </semantic:headerContent>
+
+        <semantic:content>
+           
+            <Table id="idProductsTable" inset="false" items="{path: '/value'}">
+                <!-- <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="Products" level="H2" />
+                            <ToolbarSpacer />
+                            <ComboBox id="idPopinLayout" placeholder="Popin layout options" change="onPopinLayoutChanged">
+                                <items>
+                                    <core:Item text="Block" key="Block" />
+                                    <core:Item text="Grid Large" key="GridLarge" />
+                                    <core:Item text="Grid Small" key="GridSmall" />
+                                </items>
+                            </ComboBox>
+                            <Label text="Sticky options:" />
+                            <CheckBox text="ColumnHeaders" select="onSelect" />
+                            <CheckBox text="HeaderToolbar" select="onSelect" />
+                            <CheckBox text="InfoToolbar" select="onSelect" />
+                            <ToggleButton id="toggleInfoToolbar" text="Hide/Show InfoToolbar" press="onToggleInfoToolbar" />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar> -->
+                <!-- <infoToolbar>
+                    <OverflowToolbar>
+                        <Label text="Wide range of available products" />
+                    </OverflowToolbar>
+                </infoToolbar> -->
+
+                
+                <columns>
+                    <Column width="12em">
+                        <Text text="ID" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Address" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Country" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Telephone" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Customer Type" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Language" />
+                    </Column>      
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="E-mail" />
+                    </Column>
+                    
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" type="Navigation" press="onListItemPress">
+                        <cells>
+                            <ObjectIdentifier title="{ID}" text="{FORM} {NAME}" />
+                        </cells>
+                        <cells>
+                        <ObjectIdentifier title="{STREET} {CITY}" text="{POSTBOX} {POSTCODE}" />
+                        </cells>
+                        <cells>
+                        <ObjectIdentifier text="{COUNTRY}" />
+                        </cells>
+                        <cells>
+                        <ObjectIdentifier text="{TELEPHONE}" />
+                        </cells>
+                        <cells>
+                        <ObjectIdentifier title="{CUSTTYPE}" text="{DISCOUNT}" />
+                        </cells>
+                        <cells>
+                        <ObjectIdentifier title="{LANGU}" />
+                        </cells>                       
+                         <cells>
+                        <ObjectIdentifier text="{EMAIL}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+        </semantic:content>
+
+        <!-- Semantic Footer Buttons -->
+        <semantic:positiveAction>
+            <semantic:PositiveAction id="submit_button" text="Submit" press="onPress" />
+        </semantic:positiveAction>
+
+        <semantic:negativeAction>
+            <semantic:NegativeAction id="clear_button" text="Clear" press="onPress" />
+        </semantic:negativeAction>
+
+        <semantic:footerCustomActions>
+            <!-- <Button id="submit_button" text="Submit"  press="onPress" /> -->
+        </semantic:footerCustomActions>
+
+        <!-- <Page id="page" title="{i18n>title}">
         <content />
-    </Page>
+    </Page> -->
+    </semantic:SemanticPage>
 </mvc:View>

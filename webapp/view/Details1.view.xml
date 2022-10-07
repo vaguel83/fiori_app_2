@@ -1,0 +1,62 @@
+<mvc:View controllerName="fioriapp2.controller.Details1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:semantic="sap.f.semantic">
+    <semantic:SemanticPage id="mySemanticPage" headerPinnable="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true" headerExpanded="false">
+        <semantic:titleHeading>
+            <Title text="{i18n>title}" />
+        </semantic:titleHeading>
+
+        <semantic:titleSnappedContent>
+            <Text text="{i18n>smallDescription}" />
+        </semantic:titleSnappedContent>
+
+        <semantic:titleExpandedContent>
+            <Text text="{i18n>appDescription}" />
+        </semantic:titleExpandedContent>
+
+        <semantic:headerContent>
+            <layout:HorizontalLayout allowWrapping="true">
+                <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                    <ObjectAttribute title="Functional Area" text="{i18n>functional_area}" />
+                    <ObjectAttribute title="Cost Center" text="{i18n>cost_center}" />
+                    <ObjectAttribute title="Email" text="{i18n>email}" />
+                </layout:VerticalLayout>
+
+                <layout:VerticalLayout>
+                    <ObjectAttribute title="Availability" />
+                    <ObjectStatus text="{i18n>availability}" state="Success" />
+                </layout:VerticalLayout>
+            </layout:HorizontalLayout>
+        </semantic:headerContent>
+
+        <semantic:content>
+            <layout:VerticalLayout>
+                <Label text="{i18n>nameLabel}" />
+                <Input id="nameInput" value="{/ID}" editable="false" />
+                <Label text="{i18n>streetLabel}" />
+                <Input id="streetInput" value="{/STREET}" />
+                <Label text="{i18n>cityLabel}" />
+                <Input id="cityInput" value="{/CITY}" />
+                <Label text="{i18n>countryLabel}" />
+                <Input id="countryInput" value="{/COUNTRY}" />
+                <Label text="{i18n>placeOfBirthLabel}" />
+                <Input id="birthPlaceInput" value="{/FORM}" />
+                <Label text="{i18n>emailLabel}" />
+                <Input id="emailInput" value="{/EMAIL}" />
+                <Label text="{i18n>telephoneLabel}" />
+                <Input id="telephoneInput" value="{/TELEPHONE}" />
+            </layout:VerticalLayout>
+        </semantic:content>
+
+        <!-- Semantic Footer Buttons -->
+        <semantic:positiveAction>
+            <semantic:PositiveAction id="submit_button" text="Submit" press="onSubmit" />
+        </semantic:positiveAction>
+
+        <semantic:negativeAction>
+            <semantic:NegativeAction id="clear_button" text="Back" press="onBack" />
+        </semantic:negativeAction>
+
+        <semantic:footerCustomActions>
+            <!-- <Button id="submit_button" text="Submit"  press="onPress" /> -->
+        </semantic:footerCustomActions>
+    </semantic:SemanticPage>
+</mvc:View>
